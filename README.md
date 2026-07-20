@@ -37,7 +37,6 @@ measures how *disordered* the input is before choosing how to sort it:
 
 ```bash
 make            # builds ./push_swap
-make bonus      # builds ./checker
 make clean      # removes objects
 make fclean     # removes objects and binaries
 make re         # full rebuild
@@ -217,7 +216,8 @@ Both learners reviewed each other's code and can explain every part of the proje
 AI (Anthropic's Claude) was used for:
 - Discussing which algorithm families best fit each required complexity class and
   the trade-offs between them (no algorithm code was generated).
-- Generating the initial project skeleton: this `README.md` draft, the `Makefile`.
+- Generating the initial project skeleton: this `README.md` draft, the `Makefile`,
+  header skeletons, `.gitignore`, and the benchmark script in `tools/`.
 
 All C code was written, reviewed, and understood by the authors. AI-drafted
 documentation was reviewed and edited by both learners.

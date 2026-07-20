@@ -18,7 +18,7 @@ OBJ_DIR     := obj
 INCLUDES    := -I $(INC_DIR) -I $(LIBFT_DIR)
 
 # ---------------------------------------------------------------------------- #
-#   Sources (mandatory)                                                        #
+#   Sources                                                                    #
 # ---------------------------------------------------------------------------- #
 
 SRCS := \
@@ -46,10 +46,8 @@ SRCS := \
 #   Objects                                                                    #
 # ---------------------------------------------------------------------------- #
 
-OBJS         := $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
-OBJS_NO_MAIN := $(filter-out $(OBJ_DIR)/main.o,$(OBJS))
-
-HEADERS      := $(INC_DIR)/push_swap.h
+OBJS        := $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
+HEADERS     := $(INC_DIR)/push_swap.h
 
 # ---------------------------------------------------------------------------- #
 #   Rules                                                                      #
@@ -59,6 +57,10 @@ all: $(NAME)
 
 $(NAME): $(LIBFT) $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
+
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(HEADERS)
+	@mkdir -p $(dir $@)
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 $(LIBFT):
 	@if [ ! -f $(LIBFT_DIR)/Makefile ]; then \
