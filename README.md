@@ -1,121 +1,223 @@
-*This project has been created as part
-of the 42 curriculum by jpaulo-p.*
-## Libft
+*This project has been created as part of the 42 curriculum by vneves-c, jpaulo-p.*
 
-### Description
+# push_swap
 
-**Welcome to Libft!**
+> Because Swap_push doesn't feel as natural.
 
-Libft is the first project of the 42 Common Core. The objective is to recreate a set of standard C library functions and implement additional utility functions that will be used throughout future projects.
+## Description
 
-This project introduces fundamental concepts such as memory management, string manipulation, character handling, linked lists, and code organization. The resulting library serves as a personal toolkit for future development in C.
+`push_swap` sorts a list of integers using **two stacks** (`a` and `b`) and a limited
+instruction set (`sa`, `sb`, `ss`, `pa`, `pb`, `ra`, `rb`, `rr`, `rra`, `rrb`, `rrr`).
+The program prints to standard output the **smallest possible sequence** of operations
+that sorts stack `a` in ascending order.
 
-### Instructions
+What makes this version of the project special is that the binary embeds **four
+distinct sorting strategies**, selectable at runtime, and an adaptive mode that
+measures how *disordered* the input is before choosing how to sort it:
 
-#### Prerequisites to compile
-You will need a Unix-like environment (Linux or macOS) equipped with the make command and a standard C compiler, such as gcc or cc.
+| Flag         | Strategy                     | Complexity (in generated ops) |
+| ------------ | ---------------------------- | ----------------------------- |
+| `--simple`   | Selection sort by minimum    | O(n²)                         |
+| `--medium`   | Chunk sort (√n chunks)       | O(n·√n)                       |
+| `--complex`  | LSD binary radix sort        | O(n·log n)                    |
+| `--adaptive` | Disorder-based dispatcher    | Depends on measured disorder  |
 
-- To use this library, clone the repository using the command below:
+`--adaptive` is the default when no flag is given.
 
+<!-- TODO: adjust the table above if the implemented algorithms change. -->
+
+## Instructions
+
+### Requirements
+
+- Linux (tested on campus machines) with `cc` and `make`
+- Our `libft`, copied into `./libft/` (built automatically by this Makefile)
+
+### Compilation
+
+```bash
+make            # builds ./push_swap
+make bonus      # builds ./checker
+make clean      # removes objects
+make fclean     # removes objects and binaries
+make re         # full rebuild
 ```
-git clone git@github.com:jpbellizia/libft.git
+
+### Usage
+
+```bash
+# Default (adaptive) strategy
+./push_swap 2 1 3 6 5 8
+
+# Force a specific strategy
+./push_swap --simple 5 4 3 2 1
+./push_swap --complex 4 67 3 87 23
+
+# Count operations
+ARG="4 67 3 87 23"; ./push_swap --adaptive $ARG | wc -l
+
+# Verify the output with the provided checker
+ARG="4 67 3 87 23"; ./push_swap --complex $ARG | ./checker_linux $ARG
+
+# Benchmark mode: metrics go to stderr, operations stay on stdout
+shuf -i 0-9999 -n 500 > args.txt
+./push_swap --bench $(cat args.txt) 2> bench.txt | ./checker_linux $(cat args.txt)
+cat bench.txt
 ```
-Command to view all available documents in the created directory:
-```
-cd libft
-``` 
-Now use the following commands according to your needs:
 
-`make`        - Compiles the source files and generates the static library libft.a
+Errors (non-integers, values outside `int` range, duplicates) print `Error` on
+standard error. With no parameters, the program prints nothing and returns the prompt.
 
-`make clean`  - Removes the generated object files (.o)
+## Algorithms and justification
 
-`make fclean` - Removes the object files (.o) and the static library libft.a
+<!--
+TODO before submission: this section was drafted at design time. Re-read it after
+implementation, make sure every claim matches the final code, and rewrite anything
+you would not be comfortable defending line by line.
+-->
 
-`make re`     - Performs fclean followed by make
+### Value normalization (ranks)
 
-Before using any library function, include the header file in your source code:
+Right after parsing, every value is replaced (conceptually) by its **rank**: the
+smallest value becomes `0`, the next one `1`, ..., up to `n-1`. Sorting the ranks
+requires exactly the same operation sequence as sorting the original values, because
+all our decisions depend only on relative order — which the transformation preserves.
 
-```
-#include "libft.h"
-```
+Why we do it:
+- Radix sort works on non-negative integers only; ranks remove negatives for free.
+- Ranks cap the number of radix passes at ⌈log₂ n⌉ (9 passes for 500 numbers)
+  instead of up to 31 passes for raw `int` values.
+- Chunk boundaries become trivial: chunk *i* is simply the rank interval
+  `[i·n/k, (i+1)·n/k)`.
 
-After the library has been generated, you can use all the implemented functions in your C projects by linking the library during compilation:
+The O(n²) double loop that computes ranks runs in C and costs **zero** push_swap
+operations — and the subject's complexity model counts generated operations only.
 
-`cc -Wall -Wextra -Werror main.c libft.a -o my_program`
+### Disorder metric
 
-### Implemented functions (all functions implemented in the created *.c files)
-These functions precisely replicate the behavior of standard functions found within <ctype.h>, <string.h> and <stdlib.h>.
+Disorder is the fraction of **inverted pairs** (a bigger number appearing before a
+smaller one) over all possible pairs, giving a number in `[0, 1]` — `0` for a sorted
+stack, `1` for a reversed one. It is computed with the exact pseudocode from the
+subject, **before any move**, and reported by `--bench` as a percentage with two
+decimals.
 
-#### Memory and byte operations:
-| Function   | Parameters                               | Description                            |
-| ---------- | ---------------------------------------- | -------------------------------------- |
-| ft_memset  | void *b, int c, size_t len               | Fills memory with byte value.          |
-| ft_bzero   | void *s, size_t n                        | Sets memory to zero.                   |
-| ft_memcpy  | void *dst, const void *src, size_t n     | Copies memory block.                   |
-| ft_memmove | void *dst, const void *src, size_t len   | Copies memory safely with overlap.     |
-| ft_memchr  | const void *s, int c, size_t n           | Searches byte in memory.               |
-| ft_memcmp  | const void *s1, const void *s2, size_t n | Compares memory blocks.                |
-| ft_calloc  | size_t nmemb, size_t size                | Allocates and zero-initializes memory. |
+### `--simple` — Selection sort by minimum, O(n²)
 
-#### String manipulation and inspection:
-| Function    | Parameters                                      | Description                                |
-| ----------- | ----------------------------------------------- | ------------------------------------------ |
-| ft_strlen   | const char *s                                   | Returns string length.                     |
-| ft_strchr   | const char *s, int c                            | Finds first occurrence of character.       |
-| ft_strrchr  | const char *s, int c                            | Finds last occurrence of character.        |
-| ft_strncmp  | const char *s1, const char *s2, size_t n        | Compares strings up to n characters.       |
-| ft_strnstr  | const char *big, const char *little, size_t len | Searches substring within length limit.    |
-| ft_strdup   | const char *s                                   | Duplicates a string.                       |
-| ft_substr   | const char *s, unsigned int start, size_t len   | Creates substring from string.             |
-| ft_strjoin  | const char *s1, const char *s2                  | Concatenates two strings.                  |
-| ft_strtrim  | const char *s1, const char *set                 | Removes characters from beginning and end. |
-| ft_split    | const char *s, char c                           | Splits string into array of strings.       |
-| ft_strmapi  | const char *s, char (*f)(unsigned int, char)    | Creates new string applying function.      |
-| ft_striteri | char *s, void (*f)(unsigned int, char*)         | Applies function to each character.        |
-| ft_strlcpy  | char *dst, const char *src, size_t dstsize      | Safely copies string.                      |
-| ft_strlcat  | char *dst, const char *src, size_t dstsize      | Safely concatenates strings.               |
-| ft_atoi     | const char *str                                 | Converts string to integer.                |
-| ft_itoa     | int n                                           | Converts integer to string.                |
+Find the position of the smallest element still in `a`, rotate it to the top through
+the shortest direction (`ra` or `rra`), push it to `b`; repeat, then push everything
+back with `pa`. Since elements enter `b` in ascending order, they come back to `a`
+sorted with the smallest on top.
 
-#### Character checks and conversion:
-| Function   | Parameters | Description                                 |
-| ---------- | ---------- | ------------------------------------------- |
-| ft_isalpha | int c      | Checks if character is alphabetic.          |
-| ft_isdigit | int c      | Checks if character is a digit.             |
-| ft_isalnum | int c      | Checks if character is alphanumeric.        |
-| ft_isascii | int c      | Checks if character belongs to ASCII table. |
-| ft_isprint | int c      | Checks if character is printable.           |
-| ft_toupper | int c      | Converts lowercase to uppercase.            |
-| ft_tolower | int c      | Converts uppercase to lowercase.            |
+- **Ops upper bound:** each of the n extractions costs at most n/2 rotations + 1
+  push, plus n final `pa` → O(n²).
+- **Space:** the two stacks plus O(1) auxiliary variables → O(n).
+- **Why this one:** it is the most natural fit for the stack model (one reusable
+  primitive: "locate and rotate to top") and easy to reason about during defense.
 
-#### File descriptor output helpers:
-| Function      | Parameters      | Description                          |
-| ------------- | --------------- | ------------------------------------ |
-| ft_putchar_fd | char c, int fd  | Writes character to file descriptor. |
-| ft_putstr_fd  | char *s, int fd | Writes string to file descriptor.    |
-| ft_putendl_fd | char *s, int fd | Writes string followed by newline.   |
-| ft_putnbr_fd  | int n, int fd   | Writes integer to file descriptor.   |
+### `--medium` — Chunk sort, O(n·√n)
 
-#### Linked List Functions
+Split the rank range into k = ⌈√n⌉ chunks. Phase 1: push chunks to `b` from the
+smallest chunk up — if the top of `a` belongs to the current chunk, `pb` (with an
+extra `rb` when the value sits in the lower half of the chunk, keeping big values
+near the top of `b`); otherwise `ra`. Phase 2: repeatedly rotate the maximum of `b`
+to its top through the shortest direction and `pa`.
 
-| Function | Parameters | Description |
-|-----------|------------|-------------|
-| ft_lstnew | void *content | Creates a new list node. |
-| ft_lstadd_front | t_list **lst, t_list *new | Adds a node at the beginning of the list. |
-| ft_lstadd_back | t_list **lst, t_list *new | Adds a node at the end of the list. |
-| ft_lstsize | t_list *lst | Returns the number of nodes in the list. |
-| ft_lstlast | t_list *lst | Returns the last node of the list. |
-| ft_lstdelone | t_list *lst, void (*del)(void *) | Deletes a node and frees its content. |
-| ft_lstclear | t_list **lst, void (*del)(void *) | Deletes and frees all nodes in the list. |
-| ft_lstiter | t_list *lst, void (*f)(void *) | Applies a function to each node content. |
-| ft_lstmap | t_list *lst, void *(*f)(void *), void (*del)(void *) | Creates a new list by applying a function to each node. |
+- **Ops upper bound:** phase 1 scans `a` once per chunk → O(n·√n); phase 2
+  extractions stay cheap because each chunk keeps its larger elements near the top
+  of `b`, giving O(√n) amortized rotations per element → O(n·√n) overall.
+- **Space:** O(n) for the stacks, O(1) extra.
+- **Why this one:** it reuses the selection primitive from `--simple` and only adds
+  a bucketing pre-pass, so it is the smallest step up in code complexity.
 
-### Resources
-- Terminal pages - (man libc)
-- 42 school subject and project guidelines
-- [Geeksforgeeks](https://www.geeksforgeeks.org/) - Make easier to understand functions and provide examples
+### `--complex` — LSD binary radix sort, O(n·log n)
 
-##### AI usage disclosure
-- It helped me to better understand the use of each of the developed functions.
-- It was able to explain the movements of memory to me in a minimalist way.
+For each bit from the least significant to bit ⌈log₂ n⌉−1 of the **rank**: scan the
+whole stack `a`; if the current bit of the top element is `0`, `pb`, otherwise `ra`.
+After the scan, `pa` everything back and move to the next bit.
+
+- **Ops upper bound:** each of the ⌈log₂ n⌉ passes costs n scan operations plus at
+  most n `pa` → ≤ 2n·⌈log₂ n⌉ = O(n·log n).
+- **Space:** O(n) for the stacks, O(1) extra.
+- **Why this one:** no comparisons, no recursion, no pivot handling — by far the
+  simplest correct O(n·log n) strategy in the two-stack model, and its operation
+  count is fully deterministic.
+
+### `--adaptive` — Disorder-based dispatcher (default)
+
+The adaptive strategy measures the disorder of the initial stack and delegates to
+the internal method whose cost profile fits that regime, using the thresholds fixed
+by the subject:
+
+| Regime  | Condition              | Internal method            | Bound     |
+| ------- | ---------------------- | -------------------------- | --------- |
+| Low     | disorder < 0.2         | Selection-based insertion  | O(n²)     |
+| Medium  | 0.2 ≤ disorder < 0.5   | Chunk sort                 | O(n·√n)   |
+| High    | disorder ≥ 0.5         | LSD binary radix sort      | O(n·log n)|
+
+**Threshold rationale:** the thresholds are mandated by the subject, and they match
+the algorithms' behavior well. A nearly sorted stack (low disorder) has few
+inversions, so a quadratic method that only moves misplaced elements performs very
+few actual operations despite its worst-case class. A moderately shuffled stack
+benefits from chunking, which exploits partial order. A heavily shuffled stack has
+no structure to exploit, so the deterministic radix bound is the safest choice.
+
+**Complexity argument:** each regime delegates to a method whose upper bound (proved
+in the sections above) is exactly the bound required for that regime, so the
+adaptive strategy satisfies the per-regime targets by construction. Space stays O(n)
+in every regime.
+
+<!-- TODO: if the low-disorder path ends up being plain selection sort instead of a
+smarter insertion, update the table and rationale accordingly. -->
+
+### Small inputs
+
+Inputs of size ≤ 5 are handled by hardcoded optimal-ish routines (`sort_small`)
+regardless of the selected strategy flag, since asymptotic classes are meaningless
+at that scale. <!-- TODO: confirm this design choice. -->
+
+## Benchmark results
+
+<!-- TODO: fill with real numbers before submission (averages over ≥ 10 runs). -->
+
+| Input size | Strategy     | Avg ops | Target (pass / good / excellent) |
+| ---------- | ------------ | ------- | -------------------------------- |
+| 100        | `--adaptive` | TODO    | 2000 / 1500 / 700                |
+| 500        | `--adaptive` | TODO    | 12000 / 8000 / 5500              |
+
+Reproduce with `./tools/benchmark.sh` (see the script for options).
+
+## Team and contributions
+
+<!-- TODO: replace with real logins and keep this honest and specific —
+     the subject requires the README to clearly document both learners'
+     contributions, and both must be able to defend any part of the code. -->
+
+| Learner     | Main contributions                                        |
+| ----------- | --------------------------------------------------------- |
+| `<vneves-c>`  | TODO (e.g., parsing, ops, simple/medium strategies, ...)  |
+| `<jpaulo-p>`  | TODO (e.g., radix, adaptive, bench mode, checker, ...)    |
+
+Both learners reviewed each other's code and can explain every part of the project.
+
+## Resources
+
+- Donald E. Knuth, *The Art of Computer Programming, Vol. 3: Sorting and Searching*
+- Cormen, Leiserson, Rivest, Stein, *Introduction to Algorithms* (chapters on
+  sorting and lower bounds)
+- Wikipedia: [Sorting algorithm](https://en.wikipedia.org/wiki/Sorting_algorithm),
+  [Radix sort](https://en.wikipedia.org/wiki/Radix_sort),
+  [Inversion (discrete mathematics)](https://en.wikipedia.org/wiki/Inversion_(discrete_mathematics))
+- `man` pages: `read(2)`, `write(2)`, `malloc(3)`, `free(3)`, `exit(3)`
+
+### How AI was used
+
+<!-- TODO: keep this section truthful and up to date as the project evolves —
+     it is required by the subject. Suggested honest starting point below. -->
+
+AI (Anthropic's Claude) was used for:
+- Discussing which algorithm families best fit each required complexity class and
+  the trade-offs between them (no algorithm code was generated).
+- Generating the initial project skeleton: this `README.md` draft, the `Makefile`.
+
+All C code was written, reviewed, and understood by the authors. AI-drafted
+documentation was reviewed and edited by both learners.

@@ -1,88 +1,91 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: jpaulo-p <jpaulo-p@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2026/06/15 15:42:57 by jpaulo-p          #+#    #+#              #
-#    Updated: 2026/07/08 14:53:31 by jpaulo-p         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
+NAME        := push_swap
 
-NAME	= libft.a
+CC          := cc
+CFLAGS      := -Wall -Wextra -Werror
+MAKEFLAGS   += --no-print-directory
 
-CC		= cc
-CFLAGS	= -Wall -Wextra -Werror
+# ---------------------------------------------------------------------------- #
+#   Paths                                                                      #
+# ---------------------------------------------------------------------------- #
 
-SRC		= 	ft_atoi.c			\
-			ft_bzero.c			\
-			ft_calloc.c			\
-			ft_isalnum.c		\
-			ft_isalpha.c		\
-			ft_isascii.c		\
-			ft_isdigit.c		\
-			ft_isprint.c		\
-			ft_itoa.c			\
-			ft_lstadd_back.c 	\
-			ft_lstadd_front.c 	\
-			ft_lstclear.c 		\
-			ft_lstdelone.c 		\
-			ft_lstiter.c		\
-			ft_lstlast.c 		\
-			ft_lstmap.c 		\
-			ft_lstnew.c 		\
-			ft_lstsize.c 		\
-			ft_memchr.c 		\
-			ft_memcmp.c 		\
-			ft_memcpy.c 		\
-			ft_memmove.c 		\
-			ft_memset.c 		\
-			ft_putchar_fd.c 	\
-			ft_putendl_fd.c 	\
-			ft_putnbr_fd.c 		\
-			ft_putstr_fd.c 		\
-			ft_split.c 			\
-			ft_strchr.c 		\
-			ft_strdup.c 		\
-			ft_striteri.c 		\
-			ft_strjoin.c 		\
-			ft_strlcat.c 		\
-			ft_strlcpy.c 		\
-			ft_strlen.c 		\
-			ft_strmapi.c 		\
-			ft_strncmp.c 		\
-			ft_strnstr.c 		\
-			ft_strrchr.c 		\
-			ft_strtrim.c 		\
-			ft_substr.c 		\
-			ft_tolower.c 		\
-			ft_toupper.c 		\
-			ft_printf.c	 		\
-			ft_print_char.c		\
-			ft_print_string.c	\
-			ft_print_decimal.c	\
-			ft_print_hexa.c		\
-			ft_print_pointer.c	\
-			ft_print_unsigned.c	\
-			ft_check_symbol.c		
+LIBFT_DIR   := libft
+LIBFT       := $(LIBFT_DIR)/libft.a
 
-OBJ		=	$(SRC:.c=.o)
+INC_DIR     := includes
+SRC_DIR     := srcs
+OBJ_DIR     := obj
 
-all: ${NAME}
+INCLUDES    := -I $(INC_DIR) -I $(LIBFT_DIR)
 
-$(NAME): $(OBJ)
-	ar rcs $(NAME) $(OBJ)
-	
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+# ---------------------------------------------------------------------------- #
+#   Sources (mandatory)                                                        #
+# ---------------------------------------------------------------------------- #
+
+SRCS := \
+	$(SRC_DIR)/main.c \
+	$(SRC_DIR)/parsing/parse_args.c \
+	$(SRC_DIR)/parsing/parse_flags.c \
+	$(SRC_DIR)/parsing/validate.c \
+	$(SRC_DIR)/stack/stack_init.c \
+	$(SRC_DIR)/stack/stack_utils.c \
+	$(SRC_DIR)/stack/ranks.c \
+	$(SRC_DIR)/ops/ops_swap.c \
+	$(SRC_DIR)/ops/ops_push.c \
+	$(SRC_DIR)/ops/ops_rotate.c \
+	$(SRC_DIR)/ops/ops_reverse_rotate.c \
+	$(SRC_DIR)/ops/ops_exec.c \
+	$(SRC_DIR)/metrics/disorder.c \
+	$(SRC_DIR)/metrics/bench.c \
+	$(SRC_DIR)/strategies/sort_small.c \
+	$(SRC_DIR)/strategies/sort_simple.c \
+	$(SRC_DIR)/strategies/sort_medium.c \
+	$(SRC_DIR)/strategies/sort_complex.c \
+	$(SRC_DIR)/strategies/sort_adaptive.c
+
+# ---------------------------------------------------------------------------- #
+#   Objects                                                                    #
+# ---------------------------------------------------------------------------- #
+
+OBJS         := $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
+OBJS_NO_MAIN := $(filter-out $(OBJ_DIR)/main.o,$(OBJS))
+
+HEADERS      := $(INC_DIR)/push_swap.h
+
+# ---------------------------------------------------------------------------- #
+#   Rules                                                                      #
+# ---------------------------------------------------------------------------- #
+
+all: $(NAME)
+
+$(NAME): $(LIBFT) $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
+
+$(LIBFT):
+	@if [ ! -f $(LIBFT_DIR)/Makefile ]; then \
+		echo "Error: libft not found. Copy your libft into ./$(LIBFT_DIR)/"; \
+		exit 1; \
+	fi
+	@$(MAKE) -C $(LIBFT_DIR)
+
+# ---------------------------------------------------------------------------- #
+#   Cleaning                                                                   #
+# ---------------------------------------------------------------------------- #
 
 clean:
-	rm -f $(OBJ)
+	rm -rf $(OBJ_DIR)
+	@if [ -f $(LIBFT_DIR)/Makefile ]; then $(MAKE) -C $(LIBFT_DIR) clean; fi
 
 fclean: clean
 	rm -f $(NAME)
+	@if [ -f $(LIBFT_DIR)/Makefile ]; then $(MAKE) -C $(LIBFT_DIR) fclean; fi
 
 re: fclean all
 
-.PHONY: all clean fclean re
+# ---------------------------------------------------------------------------- #
+#   Extras (not required by the subject, safe to keep)                         #
+# ---------------------------------------------------------------------------- #
+
+norm:
+	norminette $(SRC_DIR) $(INC_DIR)
+
+.PHONY: all clean fclean re norm
