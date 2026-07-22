@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_decimal.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jpaulo-p <jpaulo-p@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jpaulo-p <jpaulo-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/26 15:45:53 by jpaulo-p          #+#    #+#             */
-/*   Updated: 2026/07/04 11:23:50 by jpaulo-p         ###   ########.fr       */
+/*   Updated: 2026/07/03 16:35:03 by jpaulo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	ft_print_decimal(int n)
 {
 	long int	long_n;
 	char		res;
-	int			count;
+	int	count;
 
 	long_n = n;
 	count = 0;

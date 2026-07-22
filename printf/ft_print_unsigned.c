@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_hexa.c                                    :+:      :+:    :+:   */
+/*   ft_print_unsigned.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jpaulo-p <jpaulo-p@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jpaulo-p <jpaulo-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/30 16:26:05 by jpaulo-p          #+#    #+#             */
-/*   Updated: 2026/07/04 11:16:43 by jpaulo-p         ###   ########.fr       */
+/*   Created: 2026/06/30 19:36:30 by jpaulo-p          #+#    #+#             */
+/*   Updated: 2026/07/03 16:33:55 by jpaulo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_print_hexa(unsigned long n, char c)
+int ft_print_unsigned(unsigned int num)
 {
-	char	*base_convertion;
-	int		count;
+	char		res;
+    int	count;
 
 	count = 0;
-	if (c == 'x')
-		base_convertion = "0123456789abcdef";
-	else
-		base_convertion = "0123456789ABCDEF";
-	if (n >= 16)
-		count += ft_print_hexa(n / 16, c);
-	count += write(1, &base_convertion[n % 16], 1);
+	if (num > 9)
+		count += ft_print_unsigned(num / 10);
+	res = (num % 10) + '0';
+	write(1, &res, 1);
+	count += 1;
 	return (count);
 }

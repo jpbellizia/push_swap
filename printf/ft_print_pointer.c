@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_pointer.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jpaulo-p <jpaulo-p@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jpaulo-p <jpaulo-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/30 15:25:30 by jpaulo-p          #+#    #+#             */
-/*   Updated: 2026/07/04 11:40:19 by jpaulo-p         ###   ########.fr       */
+/*   Updated: 2026/07/03 17:48:41 by jpaulo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_print_pointer(void *n)
 {
-	int				count;
+	int		count;
 	unsigned long	num;
 
 	count = 0;
