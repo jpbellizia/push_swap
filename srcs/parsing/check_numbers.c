@@ -1,24 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   check_numbers.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vneves-c <vneves-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/24 00:06:58 by vneves-c          #+#    #+#             */
-/*   Updated: 2026/07/24 00:06:58 by vneves-c         ###   ########.fr       */
+/*   Updated: 2026/07/24 01:26:32 by vneves-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+int	check_numbers(char *arg)
 {
-	t_mode	mode;
-	int		bench;
-
-	if (argc == 1)
-		return (0);
-	parse_flags(argc, argv, &mode, &bench);
-	return (0);
 }

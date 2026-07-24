@@ -15,8 +15,8 @@
 int	ft_printf(const char *format, ...)
 {
 	va_list	args;
-	int	i;
-	int	count;
+	int		i;
+	int		count;
 
 	va_start(args, format);
 	i = 0;
