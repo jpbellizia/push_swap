@@ -6,7 +6,7 @@
 #    By: jpaulo-p <jpaulo-p@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/06/25 12:03:17 by jpaulo-p          #+#    #+#              #
-#    Updated: 2026/07/02 19:03:05 by jpaulo-p         ###   ########.fr        #
+#    Updated: 2026/07/24 12:37:40 by vneves-c         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,14 +15,9 @@ NAME	= libftprintf.a
 CC		= cc
 CCFLAGS = -Wall -Wextra -Werror
 
-SRC		=	ft_printf.c				\
-			ft_print_char.c			\
-			ft_print_string.c		\
-			ft_print_decimal.c		\
-			ft_print_hexa.c			\
-			ft_print_pointer.c		\
-			ft_print_unsigned.c		\
-			ft_check_symbol.c		
+SRC		= ft_printf.c ft_print_char.c ft_print_string.c ft_print_decimal.c \
+			ft_print_hexa.c ft_print_pointer.c ft_print_unsigned.c \
+			ft_check_symbol.c
 
 OBJ		= $(SRC:.c=.o)
 

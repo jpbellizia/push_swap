@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vneves-c <vneves-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,13 +12,8 @@
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+int	error(void)
 {
-	t_mode	mode;
-	int		bench;
-
-	if (argc == 1)
-		return (0);
-	parse_flags(argc, argv, &mode, &bench);
-	return (0);
+	ft_putstr_fd("Error\n", 2);
+	return (1);
 }

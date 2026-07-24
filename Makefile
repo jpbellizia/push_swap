@@ -6,7 +6,7 @@
 #    By: jpaulo-p <jpaulo-p@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/07/22 01:46:28 by jpaulo-p          #+#    #+#              #
-#    Updated: 2026/07/22 01:46:32 by jpaulo-p         ###   ########.fr        #
+#    Updated: 2026/07/24 12:37:40 by vneves-c         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,10 +24,8 @@ PRINTF		= $(PRINTF_DIR)/libftprintf.a
 HEADER		= includes/push_swap.h
 INCLUDES	= -I includes -I $(LIBFT_DIR) -I $(PRINTF_DIR)
 
-# Ao criar um .c novo, acrescente o caminho dele nesta lista.
-SRC			=	srcs/main.c					\
-				srcs/parsing/parse.c		\
-				srcs/parsing/check.c
+SRC			= srcs/main.c srcs/parsing/check_flags.c \
+				srcs/parsing/check_numbers.c srcs/utils/error.c
 
 OBJ			= $(SRC:.c=.o)
 

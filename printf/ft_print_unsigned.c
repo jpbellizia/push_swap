@@ -6,16 +6,16 @@
 /*   By: jpaulo-p <jpaulo-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/30 19:36:30 by jpaulo-p          #+#    #+#             */
-/*   Updated: 2026/07/03 16:33:55 by jpaulo-p         ###   ########.fr       */
+/*   Updated: 2026/07/24 00:06:58 by vneves-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_print_unsigned(unsigned int num)
+int	ft_print_unsigned(unsigned int num)
 {
 	char		res;
-    int	count;
+	int			count;
 
 	count = 0;
 	if (num > 9)

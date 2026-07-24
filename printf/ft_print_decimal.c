@@ -16,7 +16,7 @@ int	ft_print_decimal(int n)
 {
 	long int	long_n;
 	char		res;
-	int	count;
+	int			count;
 
 	long_n = n;
 	count = 0;

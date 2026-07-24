@@ -14,7 +14,7 @@
 
 int	ft_print_pointer(void *n)
 {
-	int		count;
+	int				count;
 	unsigned long	num;
 
 	count = 0;
