@@ -6,7 +6,7 @@
 /*   By: jpaulo-p <jpaulo-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/24 00:06:57 by vneves-c          #+#    #+#             */
-/*   Updated: 2026/07/24 14:34:28 by jpaulo-p         ###   ########.fr       */
+/*   Updated: 2026/07/24 15:45:17 by jpaulo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,10 @@ void    rra(t_context *ctx);
 void    rrb(t_context *ctx);
 void    rrr(t_context *ctx);
 void	swap(t_stack *stack);
+void	push(t_stack *stack, int value);
+void	rotate(t_stack *stack);
+void	reverse_rotate(t_stack *stack);
+int		pop(t_stack	*stack);
 int		error(void);
 int		is_flag(char *arg);
 void	define_mode(int argc, char **argv, t_mode *mode, int *bench);
