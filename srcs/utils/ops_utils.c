@@ -6,7 +6,7 @@
 /*   By: jpaulo-p <jpaulo-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/24 16:14:15 by jpaulo-p          #+#    #+#             */
-/*   Updated: 2026/07/24 16:42:52 by jpaulo-p         ###   ########.fr       */
+/*   Updated: 2026/07/24 16:55:19 by jpaulo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,15 @@
 
 void	swap(t_stack *stack)
 {
+	int	temp;
+
     if (!stack || stack->size < 2)
     {
         return ;
     }
-    stack->values[0]
+    temp = stack->values[0];
+	stack->values[0] = stack->values[1];
+	stack->values[1] = temp; 
 }
 
 void	push(t_stack *stack, int value)
@@ -40,13 +44,3 @@ int		pop(t_stack	*stack)
 {
     
 }
-
-
-SRC			= 	srcs/main.c \
-				srcs/metrics/ \
-				srcs/parsing/check_flags.c \
-				srcs/parsing/check_numbers.c \
-				srcs/stack/ \
-				srcs/strategies/ \
-				srcs/utils/error.c \
-				srcs/utils/ops_utils.c \
