@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vneves-c <vneves-c@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jpaulo-p <jpaulo-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/24 00:06:57 by vneves-c          #+#    #+#             */
-/*   Updated: 2026/07/24 13:19:42 by vneves-c         ###   ########.fr       */
+/*   Updated: 2026/07/24 14:29:16 by jpaulo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,14 @@ typedef enum e_mode
 	mode_medium,
 	mode_complex,
 	mode_adaptive
-}			t_mode;
+}	t_mode;
 
 typedef struct s_stack
 {
 	int	*values;
 	int	size;
 	int	capacity;
-}			t_stack;
+}	t_stack;
 
 typedef enum e_op
 {
@@ -48,7 +48,7 @@ typedef enum e_op
 	op_rrb,
 	op_rrr,
 	op_total
-}		t_op;
+}	t_op;
 
 typedef struct s_context
 {
@@ -59,6 +59,17 @@ typedef struct s_context
 	t_mode	strategy;
 }	t_context;
 
+void    sa(t_context *ctx);
+void    sb(t_context *ctx);
+void    pa(t_context *ctx);
+void    ss(t_context *ctx);
+void    pb(t_context *ctx);
+void    ra(t_context *ctx);
+void    rb(t_context *ctx);
+void    rr(t_context *ctx);
+void    rra(t_context *ctx);
+void    rrb(t_context *ctx);
+void    rrr(t_context *ctx);
 int		error(void);
 int		is_flag(char *arg);
 void	define_mode(int argc, char **argv, t_mode *mode, int *bench);
