@@ -15,6 +15,8 @@
 
 # include "libft.h"
 # include "ft_printf.h"
+# include <stdlib.h>
+# include <limits.h> 
 
 typedef enum e_mode
 {
