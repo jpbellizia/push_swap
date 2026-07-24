@@ -6,7 +6,7 @@
 /*   By: vneves-c <vneves-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/24 00:06:57 by vneves-c          #+#    #+#             */
-/*   Updated: 2026/07/24 12:43:14 by vneves-c         ###   ########.fr       */
+/*   Updated: 2026/07/24 13:19:42 by vneves-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "libft.h"
 # include "ft_printf.h"
 # include <stdlib.h>
-# include <limits.h> 
+# include <limits.h>
 
 typedef enum e_mode
 {
@@ -50,29 +50,14 @@ typedef enum e_op
 	op_total
 }		t_op;
 
-typedef struct s_stats
-{
-	int		sa;
-	int		sb;
-	int		ss;
-	int		pa;
-	int		pb;
-	int		ra;
-	int		rb;
-	int		rr;
-	int		rra;
-	int		rrb;
-	int		rrr;
-	double	disorder;
-	t_mode	strategy;
-}			t_stats;
-
 typedef struct s_context
 {
 	t_stack	a;
 	t_stack	b;
-	int	count[op_total];
-}			t_context;
+	int		count[op_total];
+	double	disorder;
+	t_mode	strategy;
+}	t_context;
 
 int		error(void);
 int		is_flag(char *arg);
