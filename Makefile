@@ -6,7 +6,7 @@
 #    By: jpaulo-p <jpaulo-p@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/07/22 01:46:28 by jpaulo-p          #+#    #+#              #
-#    Updated: 2026/07/24 12:37:40 by vneves-c         ###   ########.fr        #
+#    Updated: 2026/07/24 16:43:22 by jpaulo-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,8 +24,14 @@ PRINTF		= $(PRINTF_DIR)/libftprintf.a
 HEADER		= includes/push_swap.h
 INCLUDES	= -I includes -I $(LIBFT_DIR) -I $(PRINTF_DIR)
 
-SRC			= srcs/main.c srcs/parsing/check_flags.c \
-				srcs/parsing/check_numbers.c srcs/utils/error.c
+SRC			= 	srcs/main.c \
+				srcs/metrics/ \
+				srcs/parsing/check_flags.c \
+				srcs/parsing/check_numbers.c \
+				srcs/stack/ \
+				srcs/strategies/ \
+				srcs/utils/error.c \
+				srcs/utils/ops_utils.c \
 
 OBJ			= $(SRC:.c=.o)
 
