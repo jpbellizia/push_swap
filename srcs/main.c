@@ -19,6 +19,6 @@ int	main(int argc, char **argv)
 
 	if (argc == 1)
 		return (0);
-	parse_flags(argc, argv, &mode, &bench);
+	define_mode(argc, argv, &mode, &bench);
 	return (0);
 }
