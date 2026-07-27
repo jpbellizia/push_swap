@@ -3,15 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   check_numbers.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vneves-c <vneves-c@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jpaulo-p <jpaulo-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/24 00:06:58 by vneves-c          #+#    #+#             */
-/*   Updated: 2026/07/24 01:26:32 by vneves-c         ###   ########.fr       */
+/*   Updated: 2026/07/27 15:52:45 by jpaulo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	check_numbers(char *arg)
-{
-}
