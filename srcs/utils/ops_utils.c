@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ops_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jpaulo-p <jpaulo-p@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: jpaulo-p <jpaulo-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/24 16:14:15 by jpaulo-p          #+#    #+#             */
-/*   Updated: 2026/07/27 15:33:55 by jpaulo-p         ###   ########.fr       */
+/*   Updated: 2026/07/28 11:23:19 by jpaulo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	swap(t_stack *stack)
 		return ;
 	temp = stack->values[0];
 	stack->values[0] = stack->values[1];
-	stack->values[1] = temp; 
+	stack->values[1] = temp;
 }
 
 void	push(t_stack *stack, int value)
