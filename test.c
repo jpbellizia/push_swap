@@ -6,7 +6,7 @@
 /*   By: jpaulo-p <jpaulo-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/27 15:14:36 by jpaulo-p          #+#    #+#             */
-/*   Updated: 2026/07/27 16:18:15 by jpaulo-p         ###   ########.fr       */
+/*   Updated: 2026/07/28 18:28:55 by jpaulo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,23 +45,10 @@ t_stack	criar_pilha(int *numeros, int quantidade)
 
 int	main(void)
 {
-	t_stack	pilha_a;
-	int		numeros[] = {5, 8, 2, 6};
+	t_context	ctx;
+	int	numeros[] = {3, 2, 1};
 
-	pilha_a = criar_pilha(numeros, 4);
-	print_stack(&pilha_a, 'a');
-	rotate(&pilha_a);
-	print_stack(&pilha_a, 'a');
-
-	reverse_rotate(&pilha_a);
-	print_stack(&pilha_a, 'a');
-
-	ft_printf('\n');
-	int	tirado;
-	tirado = pop(&pilha_a);
-	ft_printf("tirei: %d\n", tirado);
-	print_stack(&pilha_a, 'a');
-	push(&pilha_a, tirado);
-	print_stack(&pilha_a, 'a');
+	ctx.a = criar_pilha(numeros, 3);
+	sa(&ctx);
 	return (0);
 }
