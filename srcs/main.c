@@ -19,6 +19,8 @@ int	main(int argc, char **argv)
 
 	if (argc == 1)
 		return (0);
+	if (validate_numbers(argc, argv) == 1)
+		return (1);
 	define_mode(argc, argv, &mode, &bench);
 	return (0);
 }

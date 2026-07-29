@@ -6,7 +6,7 @@
 /*   By: vneves-c <vneves-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/24 00:06:57 by vneves-c          #+#    #+#             */
-/*   Updated: 2026/07/24 13:19:42 by vneves-c         ###   ########.fr       */
+/*   Updated: 2026/07/24 14:01:41 by vneves-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,11 @@ typedef struct s_context
 }	t_context;
 
 int		error(void);
+long	ft_atol(const char *str);
 int		is_flag(char *arg);
 void	define_mode(int argc, char **argv, t_mode *mode, int *bench);
+int		check_number(char *arg);
+int		validate_numbers(int argc, char **argv);
+int		check_duplicates(int argc, char **argv);
 
 #endif
