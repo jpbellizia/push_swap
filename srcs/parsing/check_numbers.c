@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   check_numbers.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vneves-c <vneves-c@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jpaulo-p <jpaulo-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/24 00:06:58 by vneves-c          #+#    #+#             */
 /*   Updated: 2026/07/29 15:03:38 by vneves-c         ###   ########.fr       */
