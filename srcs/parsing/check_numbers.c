@@ -6,7 +6,7 @@
 /*   By: vneves-c <vneves-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/24 00:06:58 by vneves-c          #+#    #+#             */
-/*   Updated: 2026/07/29 13:11:49 by vneves-c         ###   ########.fr       */
+/*   Updated: 2026/07/29 15:03:38 by vneves-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,22 +57,22 @@ int	check_duplicates(int argc, char **argv)
 	int	j;
 
 	i = 1;
-		while (i < argc)
+	while (i < argc)
+	{
+		if (is_flag(argv[i]) == 0)
 		{
-			if (is_flag(argv[i]) == 0)
+			j = i + 1;
+			while (j < argc)
 			{
-				j = i + 1;
-				while (j < argc)
+				if (is_flag(argv[j]) == 0)
 				{
-					if (is_flag(argv[j]) == 0)
-					{
-						if (ft_atol(argv[i]) == ft_atol(argv[j]))
-							return (error());
-					}
-					j++;
+					if (ft_atol(argv[i]) == ft_atol(argv[j]))
+						return (error());
 				}
+				j++;
 			}
-			i++;
 		}
+		i++;
+	}
 	return (0);
 }
