@@ -25,10 +25,10 @@ HEADER		= includes/push_swap.h
 INCLUDES	= -I includes -I $(LIBFT_DIR) -I $(PRINTF_DIR)
 
 SRC = srcs/main.c srcs/parsing/check_flags.c srcs/parsing/check_numbers.c \
-		srcs/utils/error.c srcs/utils/ops_utils.c srcs/ops/ops_emit.c \
-		srcs/ops/ops_push.c srcs/ops/ops_rotate.c srcs/ops/ops_swap.c \
-		srcs/ops/ops_reverse_rotate.c srcs/parsing/ops_swap.c \
-		srcs/utils/error.c srcs/metrics/disorder.c
+		srcs/utils/error.c srcs/utils/ft_atol.c srcs/utils/ops_utils.c \
+		srcs/ops/ops_emit.c srcs/ops/ops_push.c srcs/ops/ops_rotate.c \
+		srcs/ops/ops_swap.c srcs/ops/ops_reverse_rotate.c \
+		srcs/metrics/disorder.c
 
 OBJ			= $(SRC:.c=.o)
 
