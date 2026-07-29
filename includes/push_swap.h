@@ -59,26 +59,30 @@ typedef struct s_context
 	t_mode	strategy;
 }	t_context;
 
-void    sa(t_context *ctx);
-void    sb(t_context *ctx);
-void    pa(t_context *ctx);
-void    ss(t_context *ctx);
-void    pb(t_context *ctx);
-void    ra(t_context *ctx);
-void    rb(t_context *ctx);
-void    rr(t_context *ctx);
-void    rra(t_context *ctx);
-void    rrb(t_context *ctx);
-void    rrr(t_context *ctx);
+void	sa(t_context *ctx);
+void	sb(t_context *ctx);
+void	pa(t_context *ctx);
+void	ss(t_context *ctx);
+void	pb(t_context *ctx);
+void	ra(t_context *ctx);
+void	rb(t_context *ctx);
+void	rr(t_context *ctx);
+void	rra(t_context *ctx);
+void	rrb(t_context *ctx);
+void	rrr(t_context *ctx);
 void	emit(t_context *ctx, char *name, t_op op);
 void	swap(t_stack *stack);
 void	push(t_stack *stack, int value);
 void	rotate(t_stack *stack);
 void	reverse_rotate(t_stack *stack);
-int		pop(t_stack	*stack);
+int		pop(t_stack *stack);
 int		error(void);
+long	ft_atol(const char *str);
 int		is_flag(char *arg);
 void	define_mode(int argc, char **argv, t_mode *mode, int *bench);
+int		check_number(char *arg);
+int		validate_numbers(int argc, char **argv);
+int		check_duplicates(int argc, char **argv);
 int		compute_disorder(t_stack *stack);
 
 #endif

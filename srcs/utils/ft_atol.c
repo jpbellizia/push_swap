@@ -1,38 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   disorder.c                                         :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpaulo-p <jpaulo-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/29 11:28:55 by jpaulo-p          #+#    #+#             */
-/*   Updated: 2026/07/29 15:10:33 by vneves-c         ###   ########.fr       */
+/*   Created: 2026/06/12 11:12:14 by jpaulo-p          #+#    #+#             */
+/*   Updated: 2026/07/29 12:55:02 by vneves-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	compute_disorder(t_stack *stack)
+long	ft_atol(const char *str)
 {
-	long	total_pairs;
-	long	mistakes;
+	long	res;
+	long	signal;
 	long	i;
-	long	j;
 
-	total_pairs = 0;
-	mistakes = 0;
+	res = 0;
+	signal = 1;
 	i = 0;
-	while (i < stack->size)
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
 	{
-		j = i + 1;
-		while (j < stack->size)
+		i++;
+	}
+	if (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i] == '-')
 		{
-			total_pairs++;
-			if (stack->values[i] > stack->values[j])
-				mistakes++;
-			j++;
+			signal *= -1;
 		}
 		i++;
 	}
-	return (mistakes * 10000 / total_pairs);
+	while ((str[i] >= 48) && (str[i] <= 57))
+	{
+		res = res * 10 + str[i] - '0';
+		i++;
+	}
+	return (res * signal);
 }
