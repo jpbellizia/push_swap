@@ -6,7 +6,7 @@
 /*   By: jpaulo-p <jpaulo-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/24 00:06:57 by vneves-c          #+#    #+#             */
-/*   Updated: 2026/07/27 17:17:26 by jpaulo-p         ###   ########.fr       */
+/*   Updated: 2026/07/29 11:28:18 by jpaulo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,5 +79,6 @@ int		pop(t_stack	*stack);
 int		error(void);
 int		is_flag(char *arg);
 void	define_mode(int argc, char **argv, t_mode *mode, int *bench);
+int		compute_disorder(t_stack *stack);
 
 #endif

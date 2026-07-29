@@ -6,7 +6,7 @@
 #    By: jpaulo-p <jpaulo-p@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/07/22 01:46:28 by jpaulo-p          #+#    #+#              #
-#    Updated: 2026/07/28 17:49:46 by jpaulo-p         ###   ########.fr        #
+#    Updated: 2026/07/29 11:55:11 by jpaulo-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,8 @@ SRC =	srcs/main.c							\
 		srcs/ops/ops_swap.c					\
 		srcs/ops/ops_reverse_rotate.c		\
 		srcs/parsing/ops_swap.c				\
-		srcs/utils/error.c
+		srcs/utils/error.c					\
+		srcs/metrics/disorder.c
 
 OBJ			= $(SRC:.c=.o)
 
