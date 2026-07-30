@@ -25,7 +25,7 @@ int	main(int argc, char **argv)
 	if (context_init(&ctx, argc, argv) == 0)
 		return (error());
 	define_mode(argc, argv, &ctx);
-	free(ctx.a.values);
-	free(ctx.b.values);
+	sort(&ctx);
+	free_context(&ctx);
 	return (0);
 }
