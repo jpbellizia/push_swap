@@ -22,6 +22,8 @@ int	compute_disorder(t_stack *stack)
 	total_pairs = 0;
 	mistakes = 0;
 	i = 0;
+	if (stack->size < 2)
+		return (0);
 	while (i < stack->size)
 	{
 		j = i + 1;

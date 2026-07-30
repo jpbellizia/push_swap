@@ -55,7 +55,7 @@ typedef struct s_context
 	t_stack	a;
 	t_stack	b;
 	int		count[op_total];
-	double	disorder;
+	int		disorder;
 	t_mode	strategy;
 }	t_context;
 

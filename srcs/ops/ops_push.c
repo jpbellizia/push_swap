@@ -14,12 +14,16 @@
 
 void	pa(t_context *ctx)
 {
+	if (ctx->b.size == 0)
+		return ;
 	push(&ctx->a, pop(&ctx->b));
 	emit(ctx, "pa", op_pa);
 }
 
 void	pb(t_context *ctx)
 {
+	if (ctx->a.size == 0)
+		return ;
 	push(&ctx->b, pop(&ctx->a));
 	emit(ctx, "pb", op_pb);
 }

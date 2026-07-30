@@ -27,6 +27,8 @@ void	push(t_stack *stack, int value)
 {
 	int	i;
 
+	if (!stack || stack->size >= stack->capacity)
+			return ;
 	stack->size++;
 	i = stack->size - 1;
 	while (i > 0)
