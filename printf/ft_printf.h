@@ -6,7 +6,7 @@
 /*   By: jpaulo-p <jpaulo-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/25 23:52:07 by jpaulo-p          #+#    #+#             */
-/*   Updated: 2026/07/24 00:06:58 by jpaulo-p         ###   ########.fr       */
+/*   Updated: 2026/07/30 11:54:59 by vneves-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@
 # include <unistd.h>
 # include <stdarg.h>
 
-int	ft_printf(const char *format, ...);
-int	ft_print_char(int c);
-int	ft_print_string(char *string);
-int	ft_print_decimal(int n);
-int	ft_print_hexa(unsigned long n, char c);
-int	ft_print_pointer(void *n);
-int	ft_print_unsigned(unsigned int num);
-int	ft_check_symbol(char c, va_list *args);
+int		ft_printf(const char *format, ...);
+int		ft_print_char(int c);
+int		ft_print_string(char *string);
+int		ft_print_decimal(int n);
+int		ft_print_hexa(unsigned long n, char c);
+int		ft_print_pointer(void *n);
+int		ft_print_unsigned(unsigned int num);
+int		ft_check_symbol(char c, va_list *args);
 
 #endif

@@ -1,10 +1,10 @@
 *This project has been created as part of the 42 curriculum by jpaulo-p.*
 
-# ft_printf
+# ft\_printf
 
 ## Description
 
-**Welcome to ft_printf!**
+**Welcome to ft\_printf\!**
 
 The goal of this project is to recreate the behavior of the standard C `printf()` function by implementing a custom version called `ft_printf()`.
 
@@ -14,7 +14,7 @@ Through this project, I learned how functions can receive a variable number of a
 
 The final result is a reusable static library that can be linked to future C projects developed during the 42 Common Core.
 
----
+-----
 
 ## Instructions
 
@@ -59,7 +59,7 @@ Compile your project together with the generated library:
 cc -Wall -Wextra -Werror main.c libftprintf.a -o my_program
 ```
 
----
+-----
 
 ## Supported Conversions
 
@@ -75,7 +75,7 @@ cc -Wall -Wextra -Werror main.c libftprintf.a -o my_program
 | `%X` | Prints a hexadecimal number using uppercase letters |
 | `%%` | Prints the '%' character |
 
----
+-----
 
 # Algorithm and Data Structure
 
@@ -89,17 +89,13 @@ This architecture follows a **dispatcher pattern**, where each conversion specif
 
 For example:
 
-```
-"%s %d %x"
-```
+    "%s %d %x"
 
 is interpreted as:
 
-```
-print_string()
-print_decimal()
-print_hexadecimal()
-```
+    print_string()
+    print_decimal()
+    print_hexadecimal()
 
 This approach keeps each conversion independent, making the project easier to understand, debug, maintain and extend.
 
@@ -141,15 +137,11 @@ Decimal and unsigned integers are printed recursively by repeatedly dividing the
 
 Hexadecimal numbers follow the same recursive algorithm using base 16 and the corresponding digit table:
 
-```
-0123456789abcdef
-```
+    0123456789abcdef
 
 or
 
-```
-0123456789ABCDEF
-```
+    0123456789ABCDEF
 
 This approach avoids allocating temporary strings and minimizes memory usage.
 
@@ -174,32 +166,30 @@ Since the parser processes the format string sequentially, no additional contain
 
 This design keeps both memory consumption and algorithmic complexity low while remaining highly maintainable.
 
----
+-----
 
 ## Project Structure
 
-```
-ft_printf/
-│
-├── ft_printf.c
-├── ft_printf.h
-├── Makefile
-├── libft/
-│
-├── handlers/
-│   ├── print_char.c
-│   ├── print_string.c
-│   ├── print_decimal.c
-│   ├── print_unsigned.c
-│   ├── print_hex.c
-│   └── print_pointer.c
-│
-└── utils/
-```
+    ft_printf/
+    │
+    ├── ft_printf.c
+    ├── ft_printf.h
+    ├── Makefile
+    ├── libft/
+    │
+    ├── handlers/
+    │   ├── print_char.c
+    │   ├── print_string.c
+    │   ├── print_decimal.c
+    │   ├── print_unsigned.c
+    │   ├── print_hex.c
+    │   └── print_pointer.c
+    │
+    └── utils/
 
 *(The exact organization may vary depending on the implementation.)*
 
----
+-----
 
 ## Resources
 
@@ -210,7 +200,7 @@ ft_printf/
 - GeeksforGeeks — explanations and algorithm references
 - cppreference.com — C language reference
 
----
+-----
 
 ## AI Usage Disclosure
 

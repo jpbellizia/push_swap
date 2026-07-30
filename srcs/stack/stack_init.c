@@ -6,7 +6,7 @@
 /*   By: jpaulo-p <jpaulo-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/30 08:44:43 by vneves-c          #+#    #+#             */
-/*   Updated: 2026/07/30 12:25:22 by jpaulo-p         ###   ########.fr       */
+/*   Updated: 2026/07/30 12:55:21 by vneves-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,15 +92,11 @@ int	normalize(t_stack *stack)
 		j = 0;
 		while (j < stack->size)
 		{
-			/* LACUNA 1: se values[j] for menor que values[i], rank++ */
-
 			j++;
 		}
 		ranks[i] = rank;
 		i++;
 	}
-	/* LACUNA 2: copiar ranks de volta para stack->values (um laço) */
-
 	free(ranks);
 	return (1);
 }
