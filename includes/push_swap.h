@@ -6,7 +6,7 @@
 /*   By: jpaulo-p <jpaulo-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/24 00:06:57 by vneves-c          #+#    #+#             */
-/*   Updated: 2026/07/29 11:28:18 by jpaulo-p         ###   ########.fr       */
+/*   Updated: 2026/07/30 12:05:41 by vneves-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,6 @@ int		compute_disorder(t_stack *stack);
 int		count_numbers(int argc, char **argv);
 int		stack_alloc(t_stack *stack, int capacity);
 int		stack_fill(t_stack *stack, int argc, char **argv);
-int	context_init(t_context *ctx, int argc, char **argv);
+int		context_init(t_context *ctx, int argc, char **argv);
 
 #endif

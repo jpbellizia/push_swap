@@ -1,8 +1,8 @@
 *This project has been created as part of the 42 curriculum by vneves-c, jpaulo-p.*
 
-# push_swap
+# push\_swap
 
-> Because Swap_push doesn't feel as natural.
+> Because Swap\_push doesn't feel as natural.
 
 ## Description
 
@@ -83,13 +83,14 @@ requires exactly the same operation sequence as sorting the original values, bec
 all our decisions depend only on relative order — which the transformation preserves.
 
 Why we do it:
+
 - Radix sort works on non-negative integers only; ranks remove negatives for free.
 - Ranks cap the number of radix passes at ⌈log₂ n⌉ (9 passes for 500 numbers)
   instead of up to 31 passes for raw `int` values.
 - Chunk boundaries become trivial: chunk *i* is simply the rank interval
   `[i·n/k, (i+1)·n/k)`.
 
-The O(n²) double loop that computes ranks runs in C and costs **zero** push_swap
+The O(n²) double loop that computes ranks runs in C and costs **zero** push\_swap
 operations — and the subject's complexity model counts generated operations only.
 
 ### Disorder metric
@@ -149,8 +150,8 @@ by the subject:
 
 | Regime  | Condition              | Internal method            | Bound     |
 | ------- | ---------------------- | -------------------------- | --------- |
-| Low     | disorder < 0.2         | Selection-based insertion  | O(n²)     |
-| Medium  | 0.2 ≤ disorder < 0.5   | Chunk sort                 | O(n·√n)   |
+| Low     | disorder \< 0.2         | Selection-based insertion  | O(n²)     |
+| Medium  | 0.2 ≤ disorder \< 0.5   | Chunk sort                 | O(n·√n)   |
 | High    | disorder ≥ 0.5         | LSD binary radix sort      | O(n·log n)|
 
 **Threshold rationale:** the thresholds are mandated by the subject, and they match
@@ -205,7 +206,7 @@ Both learners reviewed each other's code and can explain every part of the proje
   sorting and lower bounds)
 - Wikipedia: [Sorting algorithm](https://en.wikipedia.org/wiki/Sorting_algorithm),
   [Radix sort](https://en.wikipedia.org/wiki/Radix_sort),
-  [Inversion (discrete mathematics)](https://en.wikipedia.org/wiki/Inversion_(discrete_mathematics))
+  [Inversion (discrete mathematics)](https://en.wikipedia.org/wiki/Inversion_\(discrete_mathematics\))
 - `man` pages: `read(2)`, `write(2)`, `malloc(3)`, `free(3)`, `exit(3)`
 
 ### How AI was used
@@ -214,6 +215,7 @@ Both learners reviewed each other's code and can explain every part of the proje
      it is required by the subject. Suggested honest starting point below. -->
 
 AI (Anthropic's Claude) was used for:
+
 - Discussing which algorithm families best fit each required complexity class and
   the trade-offs between them (no algorithm code was generated).
 - Generating the initial project skeleton: this `README.md` draft, the `Makefile`,
