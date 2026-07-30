@@ -56,7 +56,8 @@ typedef struct s_context
 	t_stack	b;
 	int		count[op_total];
 	int		disorder;
-	t_mode	strategy;
+	t_mode	mode;
+	int		bench;
 }	t_context;
 
 void	sa(t_context *ctx);
@@ -79,7 +80,7 @@ int		pop(t_stack *stack);
 int		error(void);
 long	ft_atol(const char *str);
 int		is_flag(char *arg);
-void	define_mode(int argc, char **argv, t_mode *mode, int *bench);
+void	define_mode(int argc, char **argv, t_context *ctx);
 int		check_number(char *arg);
 int		validate_numbers(int argc, char **argv);
 int		check_duplicates(int argc, char **argv);
