@@ -78,6 +78,7 @@ void	rotate(t_stack *stack);
 void	reverse_rotate(t_stack *stack);
 int		pop(t_stack *stack);
 int		error(void);
+void	free_context(t_context *ctx);
 long	ft_atol(const char *str);
 int		is_flag(char *arg);
 void	define_mode(int argc, char **argv, t_context *ctx);
@@ -89,5 +90,6 @@ int		count_numbers(int argc, char **argv);
 int		stack_alloc(t_stack *stack, int capacity);
 int		stack_fill(t_stack *stack, int argc, char **argv);
 int		context_init(t_context *ctx, int argc, char **argv);
+int		is_sorted(t_stack *stack);
 
 #endif
