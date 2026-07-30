@@ -74,7 +74,7 @@ int	validate_numbers(int argc, char **argv)
 		}
 		i++;
 	}
-	if (check_number(argc, argv) == 1)
+	if (check_duplicates(argc, argv) == 1)
 		return (1);
 	return (0);
 }

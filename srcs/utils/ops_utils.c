@@ -6,7 +6,7 @@
 /*   By: jpaulo-p <jpaulo-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/24 16:14:15 by jpaulo-p          #+#    #+#             */
-/*   Updated: 2026/07/28 11:23:19 by jpaulo-p         ###   ########.fr       */
+/*   Updated: 2026/07/30 08:44:43 by vneves-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	push(t_stack *stack, int value)
 	int	i;
 
 	if (!stack || stack->size >= stack->capacity)
-			return ;
+		return ;
 	stack->size++;
 	i = stack->size - 1;
 	while (i > 0)
