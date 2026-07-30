@@ -34,23 +34,6 @@ int	check_number(char *arg)
 	return (1);
 }
 
-int	validate_numbers(int argc, char **argv)
-{
-	int	i;
-
-	i = 1;
-	while (i < argc)
-	{
-		if (is_flag(argv[i]) == 0)
-		{
-			if (check_number(argv[i]) == 0)
-				return (error());
-		}
-		i++;
-	}
-	return (0);
-}
-
 int	check_duplicates(int argc, char **argv)
 {
 	int	i;
@@ -74,5 +57,24 @@ int	check_duplicates(int argc, char **argv)
 		}
 		i++;
 	}
+	return (0);
+}
+
+int	validate_numbers(int argc, char **argv)
+{
+	int	i;
+
+	i = 1;
+	while (i < argc)
+	{
+		if (is_flag(argv[i]) == 0)
+		{
+			if (check_number(argv[i]) == 0)
+				return (error());
+		}
+		i++;
+	}
+	if (check_number(argc, argv) == 1)
+		return (1);
 	return (0);
 }
