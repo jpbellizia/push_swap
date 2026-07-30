@@ -6,7 +6,7 @@
 /*   By: jpaulo-p <jpaulo-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/30 08:44:43 by vneves-c          #+#    #+#             */
-/*   Updated: 2026/07/30 12:55:21 by vneves-c         ###   ########.fr       */
+/*   Updated: 2026/07/30 14:31:10 by jpaulo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,31 +72,5 @@ int	context_init(t_context *ctx, int argc, char **argv)
 	}
 	stack_fill(&ctx->a, argc, argv);
 	ft_bzero(ctx->count, sizeof(int) * op_total);
-	return (1);
-}
-
-int	normalize(t_stack *stack)
-{
-	int	*ranks;
-	int	i;
-	int	j;
-	int	rank;
-
-	ranks = malloc(sizeof(int) * stack->size);
-	if (!ranks)
-		return (0);
-	i = 0;
-	while (i < stack->size)
-	{
-		rank = 0;
-		j = 0;
-		while (j < stack->size)
-		{
-			j++;
-		}
-		ranks[i] = rank;
-		i++;
-	}
-	free(ranks);
 	return (1);
 }
