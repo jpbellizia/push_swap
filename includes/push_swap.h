@@ -6,7 +6,7 @@
 /*   By: jpaulo-p <jpaulo-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/24 00:06:57 by vneves-c          #+#    #+#             */
-/*   Updated: 2026/07/29 11:28:18 by jpaulo-p         ###   ########.fr       */
+/*   Updated: 2026/07/30 11:45:11 by jpaulo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,8 @@ typedef struct s_context
 	t_stack	b;
 	int		count[op_total];
 	int		disorder;
-	t_mode	strategy;
+	t_mode	mode;
+	int		bench;
 }	t_context;
 
 void	sa(t_context *ctx);
@@ -79,7 +80,7 @@ int		pop(t_stack *stack);
 int		error(void);
 long	ft_atol(const char *str);
 int		is_flag(char *arg);
-void	define_mode(int argc, char **argv, t_mode *mode, int *bench);
+void	define_mode(int argc, char **argv, t_context *ctx);
 int		check_number(char *arg);
 int		validate_numbers(int argc, char **argv);
 int		check_duplicates(int argc, char **argv);
@@ -87,6 +88,6 @@ int		compute_disorder(t_stack *stack);
 int		count_numbers(int argc, char **argv);
 int		stack_alloc(t_stack *stack, int capacity);
 int		stack_fill(t_stack *stack, int argc, char **argv);
-int	context_init(t_context *ctx, int argc, char **argv);
+int		context_init(t_context *ctx, int argc, char **argv);
 
 #endif

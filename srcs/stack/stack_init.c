@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_init.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vneves-c <vneves-c@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jpaulo-p <jpaulo-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/30 08:44:43 by vneves-c          #+#    #+#             */
-/*   Updated: 2026/07/30 08:51:57 by vneves-c         ###   ########.fr       */
+/*   Updated: 2026/07/30 12:25:22 by jpaulo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,5 +72,35 @@ int	context_init(t_context *ctx, int argc, char **argv)
 	}
 	stack_fill(&ctx->a, argc, argv);
 	ft_bzero(ctx->count, sizeof(int) * op_total);
+	return (1);
+}
+
+int	normalize(t_stack *stack)
+{
+	int	*ranks;
+	int	i;
+	int	j;
+	int	rank;
+
+	ranks = malloc(sizeof(int) * stack->size);
+	if (!ranks)
+		return (0);
+	i = 0;
+	while (i < stack->size)
+	{
+		rank = 0;
+		j = 0;
+		while (j < stack->size)
+		{
+			/* LACUNA 1: se values[j] for menor que values[i], rank++ */
+
+			j++;
+		}
+		ranks[i] = rank;
+		i++;
+	}
+	/* LACUNA 2: copiar ranks de volta para stack->values (um laço) */
+
+	free(ranks);
 	return (1);
 }
