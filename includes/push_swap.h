@@ -84,5 +84,9 @@ int		check_number(char *arg);
 int		validate_numbers(int argc, char **argv);
 int		check_duplicates(int argc, char **argv);
 int		compute_disorder(t_stack *stack);
+int		count_numbers(int argc, char **argv);
+int		stack_alloc(t_stack *stack, int capacity);
+int		stack_fill(t_stack *stack, int argc, char **argv);
+int	context_init(t_context *ctx, int argc, char **argv);
 
 #endif
