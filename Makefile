@@ -6,7 +6,7 @@
 #    By: jpaulo-p <jpaulo-p@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/07/22 01:46:28 by jpaulo-p          #+#    #+#              #
-#    Updated: 2026/07/30 14:29:18 by vneves-c         ###   ########.fr        #
+#    Updated: 2026/07/30 18:16:02 by jpaulo-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,9 @@ SRC = srcs/main.c srcs/parsing/check_flags.c srcs/parsing/check_numbers.c \
 		srcs/utils/error.c srcs/utils/ft_atol.c srcs/utils/ops_utils.c \
 		srcs/ops/ops_emit.c srcs/ops/ops_push.c srcs/ops/ops_rotate.c \
 		srcs/ops/ops_swap.c srcs/ops/ops_reverse_rotate.c \
-		srcs/metrics/disorder.c srcs/stack/stack_init.c srcs/sort/sort_utils.c
+		srcs/metrics/disorder.c srcs/stack/stack_init.c srcs/sort/sort_utils.c \
+		srcs/stack/normalize.c \
+		srcs/sort/sort_small.c
 
 OBJ			= $(SRC:.c=.o)
 

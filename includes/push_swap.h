@@ -6,7 +6,7 @@
 /*   By: jpaulo-p <jpaulo-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/24 00:06:57 by vneves-c          #+#    #+#             */
-/*   Updated: 2026/07/30 12:05:41 by vneves-c         ###   ########.fr       */
+/*   Updated: 2026/07/30 18:09:34 by jpaulo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,5 +91,8 @@ int		stack_alloc(t_stack *stack, int capacity);
 int		stack_fill(t_stack *stack, int argc, char **argv);
 int		context_init(t_context *ctx, int argc, char **argv);
 int		is_sorted(t_stack *stack);
+int		get_rank(t_stack *stack, int value);
+int		normalize(t_stack *stack);
+void	sort_three(t_context *ctx)
 
 #endif
