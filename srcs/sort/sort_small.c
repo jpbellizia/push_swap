@@ -6,7 +6,7 @@
 /*   By: jpaulo-p <jpaulo-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/30 13:10:26 by vneves-c          #+#    #+#             */
-/*   Updated: 2026/07/31 14:21:03 by jpaulo-p         ###   ########.fr       */
+/*   Updated: 2026/07/31 14:39:30 by jpaulo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,9 @@ void	sort_two(t_context *ctx)
 
 void	sort_five(t_context *ctx)
 {
-	move_min_to_top_a(ctx);
+	rotate_a_to_top(ctx, find_min_index(&ctx->a));
 	pb(ctx);
-	move_min_to_top_a(ctx);
+	rotate_a_to_top(ctx, find_min_index(&ctx->a));
 	pb(ctx);
 	sort_three(ctx);
 	pa(ctx);
