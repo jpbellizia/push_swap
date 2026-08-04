@@ -6,8 +6,13 @@
 /*   By: jpaulo-p <jpaulo-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/30 13:10:26 by vneves-c          #+#    #+#             */
-/*   Updated: 2026/07/30 15:21:13 by jpaulo-p         ###   ########.fr       */
+/*   Updated: 2026/08/04 17:31:31 by jpaulo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	sort_complex(t_context *ctx)
+{
+    
+}

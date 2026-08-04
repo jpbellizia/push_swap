@@ -6,7 +6,7 @@
 /*   By: jpaulo-p <jpaulo-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/30 08:44:43 by vneves-c          #+#    #+#             */
-/*   Updated: 2026/07/30 15:13:00 by jpaulo-p         ###   ########.fr       */
+/*   Updated: 2026/08/04 17:34:42 by jpaulo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int	context_init(t_context *ctx, int argc, char **argv)
 		return (0);
 	if (stack_alloc(&ctx->b, n) == 0)
 	{
-		free_context(&ctx);
+		free_context(ctx);
 		return (0);
 	}
 	stack_fill(&ctx->a, argc, argv);
