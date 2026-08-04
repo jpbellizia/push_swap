@@ -6,7 +6,7 @@
 /*   By: jpaulo-p <jpaulo-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/24 00:06:57 by vneves-c          #+#    #+#             */
-/*   Updated: 2026/08/01 01:02:27 by jpaulo-p         ###   ########.fr       */
+/*   Updated: 2026/08/04 17:17:25 by jpaulo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@
 typedef enum e_mode
 {
 	mode_none,
-	mode_small,
 	mode_simple,
 	mode_medium,
 	mode_complex,
@@ -98,7 +97,13 @@ void	sort_two(t_context *ctx);
 void	sort_three(t_context *ctx);
 void	sort_four(t_context *ctx);
 void	sort_five(t_context *ctx);
+void	sort_simple(t_context *ctx);
+void	sort_adaptive(t_context *ctx);
+void	sort_complex(t_context *ctx);
+int		count_bits(int n);
 int		find_min_index(t_stack *stack);
 void	move_min_to_top_a(t_context *ctx);
+void	print_mode(t_context *ctx);
+void	print_disorder(t_context *ctx);
 
 #endif
