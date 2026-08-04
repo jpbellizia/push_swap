@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   sort_medium.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vneves-c <vneves-c@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jpaulo-p <jpaulo-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/30 13:10:26 by vneves-c          #+#    #+#             */
 /*   Updated: 2026/07/30 20:26:55 by vneves-c         ###   ########.fr       */

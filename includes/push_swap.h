@@ -6,7 +6,7 @@
 /*   By: jpaulo-p <jpaulo-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/24 00:06:57 by vneves-c          #+#    #+#             */
-/*   Updated: 2026/07/30 12:05:41 by vneves-c         ###   ########.fr       */
+/*   Updated: 2026/08/01 01:02:27 by jpaulo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 typedef enum e_mode
 {
 	mode_none,
+	mode_small,
 	mode_simple,
 	mode_medium,
 	mode_complex,
@@ -91,5 +92,13 @@ int		stack_alloc(t_stack *stack, int capacity);
 int		stack_fill(t_stack *stack, int argc, char **argv);
 int		context_init(t_context *ctx, int argc, char **argv);
 int		is_sorted(t_stack *stack);
+int		get_rank(t_stack *stack, int value);
+int		normalize(t_stack *stack);
+void	sort_two(t_context *ctx);
+void	sort_three(t_context *ctx);
+void	sort_four(t_context *ctx);
+void	sort_five(t_context *ctx);
+int		find_min_index(t_stack *stack);
+void	move_min_to_top_a(t_context *ctx);
 
 #endif
