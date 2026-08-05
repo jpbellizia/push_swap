@@ -6,7 +6,7 @@
 /*   By: jpaulo-p <jpaulo-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 14:25:23 by jpaulo-p          #+#    #+#             */
-/*   Updated: 2026/06/17 17:32:22 by jpaulo-p         ###   ########.fr       */
+/*   Updated: 2026/08/05 19:11:00 by vneves-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,7 @@ void	*ft_calloc(size_t count, size_t size)
 		total = 1;
 	ptr = malloc(total);
 	if (!ptr)
-	{
 		return (NULL);
-	}
 	ft_bzero(ptr, (count * size));
 	return (ptr);
 }

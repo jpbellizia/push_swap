@@ -6,7 +6,7 @@
 /*   By: jpaulo-p <jpaulo-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 14:26:08 by jpaulo-p          #+#    #+#             */
-/*   Updated: 2026/07/24 00:06:57 by vneves-c         ###   ########.fr       */
+/*   Updated: 2026/08/05 19:11:00 by vneves-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	while (i < n)
 	{
 		if (ptr_str[i] == (unsigned char)c)
-		{
 			return ((void *)&ptr_str[i]);
-		}
 		i++;
 	}
 	return (NULL);

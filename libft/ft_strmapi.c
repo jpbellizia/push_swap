@@ -6,12 +6,12 @@
 /*   By: jpaulo-p <jpaulo-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/14 21:10:20 by jpaulo-p          #+#    #+#             */
-/*   Updated: 2026/07/24 00:06:58 by vneves-c         ###   ########.fr       */
+/*   Updated: 2026/08/05 19:11:00 by vneves-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include <stdlib.h>
+#include "libft.h"
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {

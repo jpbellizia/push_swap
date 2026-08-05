@@ -29,7 +29,7 @@ SRC = srcs/main.c srcs/parsing/check_flags.c srcs/parsing/check_numbers.c \
 		srcs/ops/ops_emit.c srcs/ops/ops_push.c srcs/ops/ops_rotate.c \
 		srcs/ops/ops_swap.c srcs/ops/ops_reverse_rotate.c \
 		srcs/metrics/disorder.c srcs/stack/stack_init.c srcs/sort/sort_utils.c \
-		srcs/stack/normalize.c srcs/sort/sort_small.c
+		srcs/sort/sort_small.c
 
 OBJ			= $(SRC:.c=.o)
 

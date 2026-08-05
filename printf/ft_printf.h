@@ -6,15 +6,15 @@
 /*   By: jpaulo-p <jpaulo-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/25 23:52:07 by jpaulo-p          #+#    #+#             */
-/*   Updated: 2026/07/30 11:54:59 by vneves-c         ###   ########.fr       */
+/*   Updated: 2026/08/05 19:11:00 by vneves-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# include <unistd.h>
 # include <stdarg.h>
+# include <unistd.h>
 
 int		ft_printf(const char *format, ...);
 int		ft_print_char(int c);

@@ -6,7 +6,7 @@
 /*   By: jpaulo-p <jpaulo-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 14:26:54 by jpaulo-p          #+#    #+#             */
-/*   Updated: 2026/06/15 16:45:40 by jpaulo-p         ###   ########.fr       */
+/*   Updated: 2026/08/05 19:11:00 by vneves-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,7 @@ char	*ft_strchr(const char *s, int c)
 	while (s[i] != '\0')
 	{
 		if (s[i] == (char) c)
-		{
 			return ((char *)&s[i]);
-		}
 		i++;
 	}
 	if ((char) c == '\0')

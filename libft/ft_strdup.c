@@ -6,7 +6,7 @@
 /*   By: jpaulo-p <jpaulo-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 14:27:05 by jpaulo-p          #+#    #+#             */
-/*   Updated: 2026/06/12 11:35:09 by jpaulo-p         ###   ########.fr       */
+/*   Updated: 2026/08/05 19:11:00 by vneves-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,7 @@ char	*ft_strdup(const char *s1)
 	len = ft_strlen(s1) + 1;
 	s2 = malloc(len * sizeof(char));
 	if (!s2)
-	{
 		return (NULL);
-	}
 	ft_strlcpy(s2, s1, len);
 	return (s2);
 }

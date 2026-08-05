@@ -6,7 +6,7 @@
 /*   By: jpaulo-p <jpaulo-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/15 18:36:48 by jpaulo-p          #+#    #+#             */
-/*   Updated: 2026/07/24 00:06:58 by vneves-c         ###   ########.fr       */
+/*   Updated: 2026/08/05 19:11:00 by vneves-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,7 @@ void	ft_putnbr_fd(int n, int fd)
 		nb *= (-1);
 	}
 	if (nb > 9)
-	{
 		ft_putnbr_fd(nb / 10, fd);
-	}
 	result = (nb % 10) + '0';
 	write(fd, &result, 1);
 }
