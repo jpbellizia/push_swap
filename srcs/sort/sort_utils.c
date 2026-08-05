@@ -6,7 +6,7 @@
 /*   By: jpaulo-p <jpaulo-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/30 13:10:26 by vneves-c          #+#    #+#             */
-/*   Updated: 2026/08/01 00:53:44 by jpaulo-p         ###   ########.fr       */
+/*   Updated: 2026/08/04 09:17:58 by vneves-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	find_min_index(t_stack *stack)
 {
 	int	min_index;
 	int	i;
-	
+
 	i = 1;
 	min_index = 0;
 	while (i < stack->size)
