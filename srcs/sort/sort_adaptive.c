@@ -11,3 +11,14 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	sort_adaptive(t_context *ctx)
+{
+	ctx->disorder = compute_disorder(&ctx->a);
+	if (ctx->disorder < 2000)
+		sort_simple(ctx);
+	else if (ctx->disorder < 5000)
+		sort_medium(ctx);
+	else
+		sort_complex(ctx);
+}

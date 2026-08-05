@@ -11,3 +11,43 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	count_bits(int n)
+{
+	int	bits;
+
+	bits = 0;
+	while (n > 0)
+	{
+		bits++;
+		n = n >> 1;
+	}
+	return (bits);
+}
+
+void	sort_complex(t_context *ctx)
+{
+	int	max_bits;
+	int	b;
+	int	i;
+	int	size;
+
+	max_bits = count_bits(ctx->a.size - 1);
+	b = 0;
+	while (b < max_bits)
+	{
+		size = ctx->a.size;
+		i = 0;
+		while (i < size)
+		{
+			if (((ctx->a.values[0] >> b) & 1) == 0)
+				pb(ctx);
+			else
+				ra(ctx);
+			i++;
+		}
+		while (ctx->b.size > 0)
+			pa(ctx);
+		b++;
+	}
+}

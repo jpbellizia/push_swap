@@ -67,7 +67,7 @@ int	context_init(t_context *ctx, int argc, char **argv)
 		return (0);
 	if (stack_alloc(&ctx->b, n) == 0)
 	{
-		free_context(&ctx);
+		free_context(ctx);
 		return (0);
 	}
 	stack_fill(&ctx->a, argc, argv);
