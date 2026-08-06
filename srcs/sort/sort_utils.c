@@ -6,7 +6,7 @@
 /*   By: jpaulo-p <jpaulo-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/30 13:10:26 by vneves-c          #+#    #+#             */
-/*   Updated: 2026/08/04 09:17:58 by vneves-c         ###   ########.fr       */
+/*   Updated: 2026/08/06 20:00:02 by jpaulo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,16 +42,14 @@ int	find_min_index(t_stack *stack)
 	return (min_index);
 }
 
-void	move_min_to_top_a(t_context *ctx)
+void	rotate_a_to_top(t_context *ctx, int index)
 {
-	int	min_index;
 	int	i;
 
-	min_index = find_min_index(&ctx->a);
-	i = 0;
-	if (min_index <= ctx->a.size / 2)
+	if (index <= ctx->a.size / 2)
 	{
-		while (i < min_index)
+		i = 0;
+		while (i < index)
 		{
 			ra(ctx);
 			i++;
@@ -59,10 +57,11 @@ void	move_min_to_top_a(t_context *ctx)
 	}
 	else
 	{
-		while (i < ctx->a.size - min_index)
+		i = ctx->a.size - index;
+		while (i > 0)
 		{
 			rra(ctx);
-			i++;
+			i--;
 		}
 	}
 }
