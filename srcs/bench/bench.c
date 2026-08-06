@@ -6,7 +6,7 @@
 /*   By: jpaulo-p <jpaulo-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/30 13:10:26 by vneves-c          #+#    #+#             */
-/*   Updated: 2026/08/04 17:16:46 by jpaulo-p         ###   ########.fr       */
+/*   Updated: 2026/08/06 20:14:49 by jpaulo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,9 @@ void	print_mode(t_context *ctx)
 			ft_putstr_fd("O(n log n)", 2);
 	}
 	ft_putstr_fd("\n", 2);
+}
+
+void	(t_context *ctx)
+{
+	
 }
