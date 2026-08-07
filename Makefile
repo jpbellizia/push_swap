@@ -6,7 +6,7 @@
 #    By: jpaulo-p <jpaulo-p@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/07/22 01:46:28 by jpaulo-p          #+#    #+#              #
-#    Updated: 2026/08/06 19:28:45 by jpaulo-p         ###   ########.fr        #
+#    Updated: 2026/08/07 11:21:47 by vneves-c         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,16 +29,10 @@ SRC = srcs/main.c srcs/parsing/check_flags.c srcs/parsing/check_numbers.c \
 		srcs/ops/ops_emit.c srcs/ops/ops_push.c srcs/ops/ops_rotate.c \
 		srcs/ops/ops_swap.c srcs/ops/ops_reverse_rotate.c \
 		srcs/metrics/disorder.c srcs/stack/stack_init.c srcs/sort/sort_utils.c \
-		srcs/sort/sort_small.c \
-		srcs/sort/sort.c \
-		srcs/sort/sort_simple.c \
-		srcs/sort/sort_medium.c \
-		srcs/sort/sort_complex.c \
-		srcs/sort/sort_adaptive.c \
-		srcs/stack/stack_normalize.c \
-		srcs/bench/bench.c \
-		srcs/utils/free_context.c \
-		
+		srcs/sort/sort_small.c srcs/sort/sort.c srcs/sort/sort_simple.c \
+		srcs/sort/sort_medium.c srcs/sort/sort_complex.c \
+		srcs/sort/sort_adaptive.c srcs/stack/stack_normalize.c \
+		srcs/bench/bench.c srcs/utils/free_context.c
 OBJ			= $(SRC:.c=.o)
 
 all: $(NAME)
