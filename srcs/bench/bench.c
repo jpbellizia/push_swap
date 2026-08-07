@@ -6,7 +6,7 @@
 /*   By: jpaulo-p <jpaulo-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/30 13:10:26 by vneves-c          #+#    #+#             */
-/*   Updated: 2026/08/06 20:14:49 by jpaulo-p         ###   ########.fr       */
+/*   Updated: 2026/08/06 23:19:13 by jpaulo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,54 @@ void	print_mode(t_context *ctx)
 	ft_putstr_fd("\n", 2);
 }
 
-void	(t_context *ctx)
+void	print_total(t_context *ctx)
 {
-	
+	int	acum;
+	int	i;
+
+	acum = 0;
+	i = 0;
+	while (i < op_total)
+	{
+		acum += ctx->count[i];
+		i++;
+	}
+	ft_putstr_fd("[bench] total_ops: ", 2);
+	ft_putnbr_fd(acum, 2);
+	ft_putstr_fd("\n", 2);
+}
+
+void	print_counts(t_context *ctx)
+{
+	ft_putstr_fd("[bench] sa: ", 2);
+	ft_putnbr_fd(ctx->count[op_sa], 2);
+	ft_putstr_fd("  sb: ", 2);
+	ft_putnbr_fd(ctx->count[op_sb], 2);
+	ft_putstr_fd("  ss: ", 2);
+	ft_putnbr_fd(ctx->count[op_ss], 2);
+	ft_putstr_fd("  pa: ", 2);
+	ft_putnbr_fd(ctx->count[op_pa], 2);
+	ft_putstr_fd("  pb: ", 2);
+	ft_putnbr_fd(ctx->count[op_pb], 2);
+	ft_putstr_fd("\n[bench] ra: ", 2);
+	ft_putnbr_fd(ctx->count[op_ra], 2);
+	ft_putstr_fd("  rb: ", 2);
+	ft_putnbr_fd(ctx->count[op_rb], 2);
+	ft_putstr_fd("  rr: ", 2);
+	ft_putnbr_fd(ctx->count[op_rr], 2);
+	ft_putstr_fd("  rra: ", 2);
+	ft_putnbr_fd(ctx->count[op_rra], 2);
+	ft_putstr_fd("  rrb: ", 2);
+	ft_putnbr_fd(ctx->count[op_rrb], 2);
+	ft_putstr_fd("  rrr: ", 2);
+	ft_putnbr_fd(ctx->count[op_rrr], 2);
+	ft_putstr_fd("\n", 2);
+}
+
+void	print_bench(t_context *ctx)
+{
+	print_disorder(ctx);
+	print_mode(ctx);
+	print_total(ctx);
+	print_counts(ctx);
 }

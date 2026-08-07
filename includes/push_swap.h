@@ -6,7 +6,7 @@
 /*   By: jpaulo-p <jpaulo-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/24 00:06:57 by vneves-c          #+#    #+#             */
-/*   Updated: 2026/08/06 20:04:50 by jpaulo-p         ###   ########.fr       */
+/*   Updated: 2026/08/06 23:16:04 by jpaulo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,5 +107,8 @@ int		count_bits(int n);
 int		find_min_index(t_stack *stack);
 void	print_mode(t_context *ctx);
 void	print_disorder(t_context *ctx);
+void	print_total(t_context *ctx);
+void	print_counts(t_context *ctx);
+void	print_bench(t_context *ctx);
 
 #endif
